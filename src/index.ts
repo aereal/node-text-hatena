@@ -2,16 +2,28 @@
 
 import * as cheerio from 'cheerio';
 
+type FilterFunction = (element: CheerioElement, $: CheerioStatic) => string; // XXX Return value must be a type that represents HTML
+
 export class TextHatena {
+  private filters: FilterFunction[];
+
+  constructor() {
+    this.filters = [];
+  }
+
+  pipe(filter: FilterFunction): this {
+    this.filters.push(filter);
+    return this;
+  }
+
   process(input: string): string {
     const $ = cheerio.load(input);
 
     $('*').each((_, el) => {
-      const $el = $(el);
-      const html = $el.text().replace(/\bid:([a-zA-Z][a-zA-Z0-9_\-]+)\b/, (_: string, name: string) => {
-        return `<a href="http://profile.hatena.ne.jp/${name}/">id:${name}</a>`;
+      this.filters.forEach(f => {
+        const filteredHTML = f(el, $);
+        $(el).html(filteredHTML);
       });
-      $el.html(html);
     });
 
     return $.html();

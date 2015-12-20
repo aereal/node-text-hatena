@@ -1,4 +1,5 @@
 import { TextHatena } from '../built/src/';
+import { processIDNotation } from '../built/src/filters';
 
 const assert = require('power-assert');
 
@@ -9,6 +10,7 @@ function dereference(input) {
 describe('TextHatena', () => {
   it('is ok', () => {
     const parser = new TextHatena();
+    parser.pipe(processIDNotation);
     const parsed = parser.process("<p>id:aereal です～。</p>");
     assert.equal(dereference(parsed), `<p><a href="http://profile.hatena.ne.jp/aereal/">id:aereal</a> です～。</p>`);
   });
