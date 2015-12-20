@@ -12,5 +12,9 @@
       "include": true
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "cheerio/cheerio.d.ts": {
+      "ref": "40c60850ad6c8175a62d5ab48c4e016ea5b3dffe"
+    }
+  }
 }
