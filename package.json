@@ -1,0 +1,19 @@
+{
+  "name": "text-hatena",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:espower-babel/guess",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "aereal",
+  "license": "MIT",
+  "devDependencies": {
+    "dtsm": "^0.13.0",
+    "espower-babel": "^4.0.1",
+    "mocha": "^2.3.4",
+    "typescript": "^1.7.5"
+  }
+}
