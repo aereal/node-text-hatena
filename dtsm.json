@@ -1,8 +1,8 @@
 {
   "repos": [
     {
-      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-      "ref": "master"
+      "url": "https://github.com/aereal/DefinitelyTyped.git",
+      "ref": "export-cheerio"
     }
   ],
   "path": "typings",
