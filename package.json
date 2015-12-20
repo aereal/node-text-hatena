@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:espower-babel/guess",
+    "test": "npm-run-all -s build test-mocha",
+    "test-mocha": "mocha --compilers js:espower-babel/guess",
     "build": "tsc"
   },
   "keywords": [],
@@ -16,6 +17,7 @@
     "dtsm": "^0.13.0",
     "espower-babel": "^4.0.1",
     "mocha": "^2.3.4",
+    "npm-run-all": "^1.4.0",
     "power-assert": "^1.2.0",
     "typescript": "^1.7.5"
   },
